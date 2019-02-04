@@ -8,6 +8,8 @@
 #ifndef USER_INCLUDES_CONSTANTS_H_
 #define USER_INCLUDES_CONSTANTS_H_
 
+#include <string>
+
 namespace constants {
 	const int SUCCESS = 1;
 	const int FAILED_TO_OPEN_FILE = 0;
