@@ -13,5 +13,6 @@
 #include <iostream>
 
 int main() {
+
 	return constants::SUCCESS;
 }
