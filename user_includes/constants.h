@@ -11,6 +11,7 @@
 #include <string>
 
 namespace constants {
+	const int TEST = 1;
 	const int SUCCESS = 1;
 	const int FAILED_TO_OPEN_FILE = 0;
 
