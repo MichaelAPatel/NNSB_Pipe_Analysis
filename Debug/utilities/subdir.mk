@@ -4,12 +4,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../utilities/ArrayUtilities.cpp \
 ../utilities/FileInputOutput.cpp 
 
 OBJS += \
+./utilities/ArrayUtilities.o \
 ./utilities/FileInputOutput.o 
 
 CPP_DEPS += \
+./utilities/ArrayUtilities.d \
 ./utilities/FileInputOutput.d 
 
 

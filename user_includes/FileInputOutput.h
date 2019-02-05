@@ -9,12 +9,15 @@
 #define UTILITIES_FILEINPUTOUTPUT_H_
 
 #include <string>
+#include <fstream>
+#include <fstream>
+#include <vector>
+
 #include "./constants.h"
 
-namespace utilities {
-int openFileR(std::string & name);
-int openFileW(std::string & name);
+std::ifstream openFileR(std::string & name);
+std::ofstream openFileW(std::string & name);
 int closeFile(std::fstream & myFile);
+std::vector<int> getResistances(std::string & name);
 
-}
 #endif /* UTILITIES_FILEINPUTOUTPUT_H_ */
