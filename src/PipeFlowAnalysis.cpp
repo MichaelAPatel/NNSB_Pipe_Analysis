@@ -18,6 +18,15 @@ int main() {
 	std::string path = "./data/fake_data.csv";
 	std::vector<int> resistances = getResistances(path);
 
+	std::vector<int> voltages;
+	voltages.resize(resistances.size(), 0);
+
+	const int VOLTAGE = 120;
+
+	for(unsigned int i = 0; i < voltages.size() - 1; i++) {
+		voltages[i] = VOLTAGE;
+	}
+
 	// Create a square matrix (array of arrays) with default value of 0 and set its size.
 	std::vector<std::vector<int>> resistanceMatrix;
 	resistanceMatrix.resize(resistances.size(), std::vector<int>(resistances.size(), 0));
@@ -46,8 +55,10 @@ int main() {
 
 	// Prints they array to the console.
 	printMatrix(resistanceMatrix);
-	float temp = det(resistanceMatrix, resistanceMatrix.size());
-	std::cout << "Determinant = " << temp << std::endl;
+	for(unsigned int i = 0; i < voltages.size(); i++) {
+		float temp = getCurrent(resistanceMatrix, voltages, i);
+		std::cout << "Current " << i + 1 << "  = " << temp << std::endl;
+	}
 	//todo Create Array Inverting *LOOK INTO CRAMER METHOD*
 	return constants::SUCCESS;
 }
