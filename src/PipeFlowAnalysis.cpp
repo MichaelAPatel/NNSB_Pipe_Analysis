@@ -47,6 +47,6 @@ int main() {
 	// Prints they array to the console.
 	printArray(resistanceMatrix);
 
-	//todo Create Array Inverting LOOK INTO CRAMER METHOD
+	//todo Create Array Inverting *LOOK INTO CRAMER METHOD*
 	return constants::SUCCESS;
 }
