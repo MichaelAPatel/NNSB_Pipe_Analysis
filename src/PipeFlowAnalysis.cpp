@@ -45,8 +45,9 @@ int main() {
 	}
 
 	// Prints they array to the console.
-	printArray(resistanceMatrix);
-
+	printMatrix(resistanceMatrix);
+	float temp = det(resistanceMatrix, resistanceMatrix.size());
+	std::cout << "Determinant = " << temp << std::endl;
 	//todo Create Array Inverting *LOOK INTO CRAMER METHOD*
 	return constants::SUCCESS;
 }
