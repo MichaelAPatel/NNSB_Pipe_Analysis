@@ -12,8 +12,11 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <chrono>
 
 int main() {
+
+	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
 	// Grab all the resistances from the CSV file at the specified path and store them to an array.
 	std::string path = "./data/fake_data.csv";
 	std::vector<int> resistances = getResistances(path);
@@ -59,6 +62,12 @@ int main() {
 		float temp = getCurrent(resistanceMatrix, voltages, i);
 		std::cout << "Current " << i + 1 << "  = " << temp << std::endl;
 	}
-	//todo Create Array Inverting *LOOK INTO CRAMER METHOD*
+
+	// Measures end time and computes total time in seconds and milliseconds and prints the duration.
+	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
+	auto durationS = std::chrono::duration_cast<std::chrono::seconds>(t2 - t1);
+	auto durationmS = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1);
+	std::cout << "Program took " << durationmS.count() << " milliseconds, or " << durationS.count() << " seconds, to complete." << std::endl;
+
 	return constants::SUCCESS;
 }
