@@ -15,8 +15,9 @@
 #include <chrono>
 
 int main() {
-
+	// Start tracking the time.
 	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+
 	// Grab all the resistances from the CSV file at the specified path and store them to an array.
 	std::string path = "./data/fake_data.csv";
 	std::vector<int> resistances = getResistances(path);
@@ -58,8 +59,11 @@ int main() {
 
 	// Prints they array to the console.
 	printMatrix(resistanceMatrix);
+
+	// Determine all the currents.
+	float detA = det(resistanceMatrix, resistanceMatrix.size());
 	for(unsigned int i = 0; i < voltages.size(); i++) {
-		float temp = getCurrent(resistanceMatrix, voltages, i);
+		float temp = getCurrent(resistanceMatrix, voltages, detA, i);
 		std::cout << "Current " << i + 1 << "  = " << temp << std::endl;
 	}
 

@@ -54,8 +54,7 @@ void getCofactor(std::vector<std::vector<int>> & matrix, std::vector<std::vector
 	}
 }
 
-float getCurrent(std::vector<std::vector<int>> & matrix, std::vector<int> & array, int n) {
-	float detA = det(matrix, matrix.size());
+float getCurrent(std::vector<std::vector<int>> & matrix, std::vector<int> & array, float detA, int n) {
 
 	std::vector<std::vector<int>> tempMatrix;
 	tempMatrix.resize(matrix.size(), std::vector<int>(matrix.size(), 0));
