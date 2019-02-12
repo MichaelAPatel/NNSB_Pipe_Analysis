@@ -1,9 +1,10 @@
-/*
- * ArrayUtilities.h
- *
- *  Created on: Feb 4, 2019
- *      Author: cs
- */
+//============================================================================
+// Name        : ArrayUtilities.h
+// Author      : Michael Patel, Jeffrey McKaig, Gracen Dickens,
+//			     Chase Ziegler, and Jessica Masterson
+// Version     : 0.1.0
+// Description :
+//============================================================================
 
 #ifndef USER_INCLUDES_ARRAYUTILITIES_H_
 #define USER_INCLUDES_ARRAYUTILITIES_H_

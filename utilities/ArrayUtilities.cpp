@@ -1,9 +1,10 @@
-/*
- * ArrayUtilities.cpp
- *
- *  Created on: Feb 4, 2019
- *      Author: cs
- */
+//============================================================================
+// Name        : ArrayUtilities.cpp
+// Author      : Michael Patel, Jeffrey McKaig, Gracen Dickens,
+//			     Chase Ziegler, and Jessica Masterson
+// Version     : 0.1.0
+// Description :
+//============================================================================
 
 #include "../user_includes/ArrayUtilities.h"
 #include <vector>

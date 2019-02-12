@@ -1,6 +1,7 @@
 //============================================================================
 // Name        : Pipe_Flow_Analysis.cpp
-// Author      : Michael Patel & Jeffrey McKaig
+// Author      : Michael Patel, Jeffrey McKaig, Gracen Dickens,
+//			     Chase Ziegler, and Jessica Masterson
 // Version     : 0.1.0
 // Description :
 //============================================================================

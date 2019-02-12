@@ -1,6 +1,7 @@
 //============================================================================
 // Name        : constants.h
-// Author      : Michael Patel
+// Author      : Michael Patel, Jeffrey McKaig, Gracen Dickens,
+//			     Chase Ziegler, and Jessica Masterson
 // Version     : 0.1.0
 // Description : Stores constants for use in other parts of the program.
 //============================================================================

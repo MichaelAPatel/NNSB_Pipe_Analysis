@@ -1,6 +1,7 @@
 //============================================================================
-// Name        : FileInputOutput
-// Author      : Michael Patel & Jeffrey McKaig
+// Name        : FileInputOutput.h
+// Author      : Michael Patel, Jeffrey McKaig, Gracen Dickens,
+//			     Chase Ziegler, and Jessica Masterson
 // Version     : 0.1.0
 // Description :
 //============================================================================
