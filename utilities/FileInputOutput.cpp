@@ -16,7 +16,7 @@
 
 using namespace std;
 
-std::ifstream openFileR(std::string & name) {
+std::ifstream openFileR(const std::string & name) {
 	ifstream myFile;
 	myFile.open (name);
 	if (myFile.is_open()) {
@@ -25,7 +25,7 @@ std::ifstream openFileR(std::string & name) {
 	return myFile;
 }
 
-std::ofstream openFileW(std::string & name) {
+std::ofstream openFileW(const std::string & name) {
 	ofstream myFile;
 	myFile.open (name);
 	if (myFile.is_open()) {
@@ -42,10 +42,10 @@ int closeFile(std::fstream & myFile) {
 	return constants::SUCCESS;
 }
 
-vector<int> getResistances(std::string & name) {
+vector<int> readFile(const std::string & name) {
 	std::ifstream myFile = openFileR(name);
 
-    vector<int> resistances;
+    vector<int> inputData;
     string line, word, temp;
 
 
@@ -60,12 +60,9 @@ vector<int> getResistances(std::string & name) {
         // read every column data of a row and
         // store it in a string variable, 'word'
         while(getline(ss, temp, constants::CHAR_TO_SEARCH_FOR)) {
-
-            // add all the column data
-            // of a row to a vector
-            resistances.push_back(stoi(temp));
+        	inputData.push_back(stoi(temp));
         }
         myFile.close();
-        return resistances;
+        return inputData;
 }
 

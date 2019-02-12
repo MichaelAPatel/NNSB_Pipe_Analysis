@@ -15,9 +15,9 @@
 
 #include "./constants.h"
 
-std::ifstream openFileR(std::string & name);
-std::ofstream openFileW(std::string & name);
+std::ifstream openFileR(const std::string & name);
+std::ofstream openFileW(const std::string & name);
 int closeFile(std::fstream & myFile);
-std::vector<int> getResistances(std::string & name);
+std::vector<int> readFile(const std::string & name);
 
 #endif /* UTILITIES_FILEINPUTOUTPUT_H_ */

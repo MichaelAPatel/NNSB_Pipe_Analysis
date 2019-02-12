@@ -16,17 +16,18 @@
 
 int main() {
 	// Start tracking the time.
-	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+	std::chrono::high_resolution_clock::time_point programStart = std::chrono::high_resolution_clock::now();
 
 	// Grab all the resistances from the CSV file at the specified path and store them to an array.
-	std::string path = "./data/fake_data.csv";
-	std::vector<int> resistances = getResistances(path);
+	std::vector<int> resistances = readFile(constants::THIRTY_PATH);
 
+	// Take the voltage as the first input, and then remove it from the resistance array.
+	const int VOLTAGE = resistances[0];
+	resistances.erase(resistances.begin());
+
+	// Create a voltage array and fill it.
 	std::vector<int> voltages;
 	voltages.resize(resistances.size(), 0);
-
-	const int VOLTAGE = 120;
-
 	for(unsigned int i = 0; i < voltages.size() - 1; i++) {
 		voltages[i] = VOLTAGE;
 	}
@@ -63,15 +64,20 @@ int main() {
 	// Determine all the currents.
 	float detA = det(resistanceMatrix, resistanceMatrix.size());
 	for(unsigned int i = 0; i < voltages.size(); i++) {
+		std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
 		float temp = getCurrent(resistanceMatrix, voltages, detA, i);
-		std::cout << "Current " << i + 1 << "  = " << temp << std::endl;
+		std::cout << "Current " << i + 1 << "  = " << temp;
+		std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
+		auto durationmS = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1);
+		float val = durationmS.count() / 1000.0;
+		std::cout << " (" << val << ")" << std::endl;
+
 	}
 
 	// Measures end time and computes total time in seconds and milliseconds and prints the duration.
-	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
-	auto durationS = std::chrono::duration_cast<std::chrono::seconds>(t2 - t1);
-	auto durationmS = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1);
-	std::cout << "Program took " << durationmS.count() << " milliseconds, or " << durationS.count() << " seconds, to complete." << std::endl;
+	std::chrono::high_resolution_clock::time_point programEnd = std::chrono::high_resolution_clock::now();
+	auto durationS = std::chrono::duration_cast<std::chrono::milliseconds>(programEnd - programStart);
+	std::cout << "Program took " << durationS.count() << " milliseconds to complete." << std::endl;
 
 	return constants::SUCCESS;
 }

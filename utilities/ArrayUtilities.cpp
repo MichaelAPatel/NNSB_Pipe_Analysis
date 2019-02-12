@@ -30,9 +30,15 @@ float det(std::vector<std::vector<int>> & matrix, int index) {
 	coFactors.resize(matrix.size(), std::vector<int>(matrix.size(), 0));
 
 	for (int i = 0; i < index; i++) {
-		getCofactor(matrix, coFactors, 0, i, index);
-		determinant += sign * matrix[0][i] * det(coFactors, index - 1);
-		sign = -sign;
+		if(matrix[0][i] == 0) {
+			sign = -sign;
+			continue;
+		}
+		else {
+			getCofactor(matrix, coFactors, 0, i, index);
+			determinant += sign * matrix[0][i] * det(coFactors, index - 1);
+			sign = -sign;
+		}
 	}
 
 	return determinant;
