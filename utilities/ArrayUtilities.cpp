@@ -11,7 +11,7 @@
 #include <string>
 #include <iostream>
 
-void printMatrix(std::vector<std::vector<int>> & matrix) {
+void printMatrix(std::vector<std::vector<double>> & matrix) {
 	for(unsigned int i = 0; i < matrix.size(); i++) {
 		for(unsigned int j = 0; j < matrix[i].size(); j++) {
 			std::cout << matrix[i][j] << " ";
@@ -20,18 +20,18 @@ void printMatrix(std::vector<std::vector<int>> & matrix) {
 	}
 }
 
-float det(std::vector<std::vector<int>> & matrix, int index) {
+float det(std::vector<std::vector<double>> & matrix, int index) {
 	float determinant = 0;
 	int sign = 1;
 
 	if (index == 1)
 		return matrix[0][0];
 
-	std::vector<std::vector<int>> coFactors;
-	coFactors.resize(matrix.size(), std::vector<int>(matrix.size(), 0));
+	std::vector<std::vector<double>> coFactors;
+	coFactors.resize(matrix.size(), std::vector<double>(matrix.size(), 0));
 
 	for (int i = 0; i < index; i++) {
-		if(matrix[0][i] == 0) {
+		if(matrix[0][i] == 0.0) {
 			sign = -sign;
 			continue;
 		}
@@ -45,7 +45,7 @@ float det(std::vector<std::vector<int>> & matrix, int index) {
 	return determinant;
 }
 
-void getCofactor(std::vector<std::vector<int>> & matrix, std::vector<std::vector<int>> & coFactors, int p, int q, int n) {
+void getCofactor(std::vector<std::vector<double>> & matrix, std::vector<std::vector<double>> & coFactors, int p, int q, int n) {
 	int i = 0, j = 0;
 
 	for (int row = 0; row < n; row++) {
@@ -61,10 +61,10 @@ void getCofactor(std::vector<std::vector<int>> & matrix, std::vector<std::vector
 	}
 }
 
-float getCurrent(std::vector<std::vector<int>> & matrix, std::vector<int> & array, float detA, int n) {
+float getCurrent(std::vector<std::vector<double>> & matrix, std::vector<double> & array, float detA, int n) {
 
-	std::vector<std::vector<int>> tempMatrix;
-	tempMatrix.resize(matrix.size(), std::vector<int>(matrix.size(), 0));
+	std::vector<std::vector<double>> tempMatrix;
+	tempMatrix.resize(matrix.size(), std::vector<double>(matrix.size(), 0));
 
 	for(unsigned int i = 0; i < matrix.size(); i++) {
 		for(unsigned int j = 0; j < matrix[i].size(); j++) {

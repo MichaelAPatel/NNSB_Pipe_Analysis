@@ -43,10 +43,10 @@ int closeFile(std::fstream & myFile) {
 	return constants::SUCCESS;
 }
 
-vector<int> readFile(const std::string & name) {
+vector<double> readFile(const std::string & name) {
 	std::ifstream myFile = openFileR(name);
 
-    vector<int> inputData;
+    vector<double> inputData;
     string line, word, temp;
 
 
@@ -61,7 +61,7 @@ vector<int> readFile(const std::string & name) {
         // read every column data of a row and
         // store it in a string variable, 'word'
         while(getline(ss, temp, constants::CHAR_TO_SEARCH_FOR)) {
-        	inputData.push_back(stoi(temp));
+        	inputData.push_back(stod(temp));
         }
         myFile.close();
         return inputData;

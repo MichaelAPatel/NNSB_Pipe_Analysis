@@ -20,27 +20,27 @@ int main() {
 	std::chrono::high_resolution_clock::time_point programStart = std::chrono::high_resolution_clock::now();
 
 	// Grab all the resistances from the CSV file at the specified path and store them to an array.
-	std::vector<int> resistances = readFile(constants::THIRTY_PATH);
+	std::vector<double> resistances = readFile(constants::SIMPLE_PATH);
 
 	// Take the voltage as the first input, and then remove it from the resistance array.
-	const int VOLTAGE = resistances[0];
+	const double VOLTAGE = resistances[0];
 	resistances.erase(resistances.begin());
 
 	// Create a voltage array and fill it.
-	std::vector<int> voltages;
+	std::vector<double> voltages;
 	voltages.resize(resistances.size(), 0);
 	for(unsigned int i = 0; i < voltages.size() - 1; i++) {
 		voltages[i] = VOLTAGE;
 	}
 
 	// Create a square matrix (array of arrays) with default value of 0 and set its size.
-	std::vector<std::vector<int>> resistanceMatrix;
-	resistanceMatrix.resize(resistances.size(), std::vector<int>(resistances.size(), 0));
+	std::vector<std::vector<double>> resistanceMatrix;
+	resistanceMatrix.resize(resistances.size(), std::vector<double>(resistances.size(), 0));
 
 	// Assigns the first column of the matrix.
 	for(unsigned int i = 0; i < resistances.size(); i++) {
 		if(i == resistances.size() - 1) {
-			resistanceMatrix[i][0] = -1;
+			resistanceMatrix[i][0] = -1.0;
 		}
 		else {
 			resistanceMatrix[i][0] = resistances[0];

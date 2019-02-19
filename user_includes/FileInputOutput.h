@@ -19,6 +19,6 @@
 std::ifstream openFileR(const std::string & name);
 std::ofstream openFileW(const std::string & name);
 int closeFile(std::fstream & myFile);
-std::vector<int> readFile(const std::string & name);
+std::vector<double> readFile(const std::string & name);
 
 #endif /* UTILITIES_FILEINPUTOUTPUT_H_ */
